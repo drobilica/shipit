@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drobilica ShipIt</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+    <body class="bg-gray-100">
+        <div class="container mx-auto p-8">
+            <h1 class="text-4xl text-center text-gray-700 mb-6">Drobilica ShipIt</h1>
+            
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col items-center justify-center">
+                <button id="receiveButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Receive
+                </button>
+                <div id="qrCodeContainer" class="mt-4"></div>
+                <div id="fileTradeBox" class="hidden mt-4">
+                    <input type="file" id="fileInput">
+                    <!-- File trade boxes will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

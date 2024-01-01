@@ -3,6 +3,21 @@
 ## Overview
 Drobilica ShipIt is a pioneering web-based application enabling direct file sharing between devices. Operating entirely client-side, it emulates functionalities similar to Apple's AirDrop, offering a streamlined, serverless file transfer process. This application is particularly designed for simplicity, security, and speed.
 
+## User stories
+
+- Web interface UI in tailwind css
+- There are no logging or registration as much as possible should be handled client side 
+- User #1 should be able to click on the button receieve on PC when he visits an website drobilica.com/shipit 
+- Upon clicking on the website QR code unique should be generated
+- User #2 should be able to scan that code trough camera on his phone
+- Upon scanning user should be led to and page drobilica.com/shipit and trade box should be opened where user #1 and user #2 can exchange files
+- There should be two trade in boxes like in a game. Both users should be able to upload things on his side of the trade. Upload shouldn't done to the server but rather files should be kept in local storage of the browser for each user. Upon exiting the page all files should be dropped
+- Comms between them and file share should be done with new web technologies like webRTC for direct file transfers 
+- There should be a list of uploaded items of each user. and next to it there should be a download button.
+- That's it 
+
+
+
 ## Key Features
 - **Serverless Architecture**: All functionalities are client-side, eliminating reliance on backend servers.
 - **Peer-to-Peer File Sharing**: Leverages WebRTC for direct, real-time file transfers between users.
@@ -14,7 +29,7 @@ Go to https://drobilica.com/shipit
 
 ## Development Steps
 1. **Front-End Development**:
-   - Implement the user interface using React or Vue.js.
+   - Implement the user interface using React.
    - Develop code generation logic for file-sharing sessions.
    - Ensure responsive design for cross-device compatibility.
 

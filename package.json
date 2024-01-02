@@ -1,0 +1,23 @@
+{
+  "name": "shipit",
+  "version": "1.0.0",
+  "description": "## Overview Drobilica ShipIt is a pioneering web-based application enabling direct file sharing between devices. Operating entirely client-side, it emulates functionalities similar to Apple's AirDrop, offering a streamlined, serverless file transfer process. This application is particularly designed for simplicity, security, and speed.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.10"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "qrcode": "^1.5.3",
+    "tailwindcss": "^3.4.0"
+  }
+}

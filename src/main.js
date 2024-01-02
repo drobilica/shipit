@@ -1,3 +1,6 @@
+import './styles.css';
+import QRCode from 'qrcode';
+
 document.getElementById('fileInput').addEventListener('change', function(e) {
     var file = e.target.files[0];
     var reader = new FileReader();
@@ -22,16 +25,17 @@ document.getElementById('receiveButton').addEventListener('click', function() {
 
     qrCodeContainer.innerHTML = ''; // Clear the QR code container
 
-    if (typeof QRCode !== 'undefined') {
-        new QRCode(qrCodeContainer, {
-            text: uniqueUrl,
-            width: 256,
-            height: 256
-        });
+    QRCode.toDataURL(uniqueUrl, { width: 256 }, function (err, url) {
+        if (err) {
+            console.error('Error generating QR code:', err);
+            return;
+        }
+
+        var img = document.createElement('img');
+        img.src = url;
+        qrCodeContainer.appendChild(img);
 
         console.log('Generated URL:', uniqueUrl);
         console.log('Generated Code:', uniqueId);
-    } else {
-        console.error('QRCode object is not available. Please ensure the QRCode.js library is properly imported.');
-    }
+    });
 });

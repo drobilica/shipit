@@ -1,4 +1,4 @@
-name: Copy Ship It to drobilica.github.io
+name: Build and Deploy to drobilica.github.io
 
 on:
   push:
@@ -11,32 +11,37 @@ env:
   TARGET_FOLDER: trade
 
 jobs:
-  copy_merge_pdf:
+  build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout merge-pdf repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}
-          ref: main
 
-      - name: Sync Folder to Repository B
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Checkout target repository
         uses: actions/checkout@v4
         with:
           repository: ${{ env.TARGET_REPO }}
           token: ${{ secrets.drobilica_access }}
           path: ${{ env.TARGET_PATH }}
 
-      - name: Copy Files
+      - name: Copy build output
         run: |
           mkdir -p ${{ env.TARGET_PATH }}/${{ env.TARGET_FOLDER }}
           rm -rf ${{ env.TARGET_PATH }}/${{ env.TARGET_FOLDER }}/*
-          shopt -s extglob # Enable extended globbing
-          cp -R !(drobilica-homepage) ${{ env.TARGET_PATH }}/${{ env.TARGET_FOLDER }}
-          shopt -u extglob # Disable extended globbing
+          cp -R dist/* ${{ env.TARGET_PATH }}/${{ env.TARGET_FOLDER }}
 
-      - name: Commit and Push if Changes Exist
+      - name: Commit and push changes
         run: |
           cd ${{ env.TARGET_PATH }}
           git config --local user.email "action@github.com"

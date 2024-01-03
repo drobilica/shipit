@@ -26,8 +26,8 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          npm ls
           npm ci
+          npm ls
           npm run build
 
       - name: Checkout target repository

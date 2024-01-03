@@ -9,7 +9,7 @@ env:
   TARGET_REPO: drobilica/drobilica.github.io
   TARGET_PATH: drobilica-homepage
   TARGET_FOLDER: trade
-  # NODE_ENV: production
+  NODE_ENV: production
 
 jobs:
   build_and_deploy:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          export NODE_ENV=production
+          npm ls
           npm ci
           npm run build
 

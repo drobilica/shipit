@@ -21,7 +21,7 @@ function generateUniqueId() {
 document.getElementById('receiveButton').addEventListener('click', function() {
     var qrCodeContainer = document.getElementById('qrCodeContainer');
     var uniqueId = generateUniqueId();
-    var uniqueUrl = "https://drobilica.com/trade/" + uniqueId; // Replace "https://yourwebsite.com/trade/" with your actual URL
+    var uniqueUrl = "https://drobilica.com/trade/" + uniqueId; 
 
     qrCodeContainer.innerHTML = ''; // Clear the QR code container
 

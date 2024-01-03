@@ -25,7 +25,7 @@ document.getElementById('receiveButton').addEventListener('click', function() {
 
     qrCodeContainer.innerHTML = ''; // Clear the QR code container
 
-    QRCode.toDataURL(uniqueUrl, { width: 256 }, function (err, url) {
+    QRCode.toDataURL(uniqueUrl, { width: 256, version: 3 }, function (err, url) {
         if (err) {
             console.error('Error generating QR code:', err);
             return;

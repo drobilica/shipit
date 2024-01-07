@@ -15,7 +15,7 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
 });
 
 function generateUniqueId() {
-    return Math.random().toString(36).substr(2, 9);
+    return Math.random().toString(36).substring(2, 11);
 }
 
 document.getElementById('receiveButton').addEventListener('click', function() {
